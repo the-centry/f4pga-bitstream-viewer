@@ -22,10 +22,10 @@ venv/bin/activate:
 	virtualenv -p python3 venv
 
 venv/bin/nodeenv: venv/bin/activate
-	bash -c '. $< ; pip3 install nodeenv'
+	bash -c '. $< ; pip3 install nodeenv==1.6.0'
 
 nenv/bin/activate: venv/bin/nodeenv
-	bash -c '. venv/bin/activate ; nodeenv nenv'
+	bash -c '. venv/bin/activate ; nodeenv nenv --node=16.1.0'
 
 nenv/bin/vue: nenv/bin/activate
 	bash -c ' \
